@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: 查看存储库代码
         uses: actions/checkout@v3
-      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+      - name: 设置 .NET Core SDK ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
@@ -17,3 +17,7 @@ jobs:
         run: pwd
       - name: 显示当前目录的文件 
         run: ls
+      - name: 下载依赖项，还原项目 
+        run: dotnet restore
+      - name: 构建项目
+        run: dotnet build --configuration Release --no-restore
