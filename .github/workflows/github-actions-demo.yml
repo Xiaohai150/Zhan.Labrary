@@ -1,0 +1,8 @@
+﻿name: build my action
+on: [push]
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: ls 
+      - run: pwd
